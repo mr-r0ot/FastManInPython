@@ -67,7 +67,7 @@ threads=[]
             output_file.write(f"threads.append(t)\n")
             output_file.write(f"t.start()\n")
 
-input(f"Output file '{out_path}' has been created with the processed content.
+input(f"""Output file '{out_path}' has been created with the processed content.
     Now you are tens and hundreds of times faster!
       
       
