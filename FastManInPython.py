@@ -48,7 +48,6 @@ for line in file_content:
 with open(out_path, 'w+') as output_file:
     # Write Imports
     output_file.write('''from threading import Thread
-threads=[]
 ''')
     for line in file_content:
         if line.startswith('import') or line.startswith('from'):
@@ -63,9 +62,7 @@ threads=[]
         if not line.strip().startswith("from") and not line.strip().startswith("import") and not line.strip().startswith('"') and not line.strip().startswith("'") and not line.strip().startswith("#") and not line.strip().startswith('"""') and line.strip() != '' and not line.isspace():
             output_file.write(f"def cpu_function():\n")
             output_file.write(f"    {line.replace('{lin}', '').strip()}\n")
-            output_file.write(f"t = Thread(target=cpu_function)\n")
-            output_file.write(f"threads.append(t)\n")
-            output_file.write(f"t.start()\n")
+            output_file.write(f"Thread(target=cpu_function).start()\n")
 
 input(f"""Output file '{out_path}' has been created with the processed content.
     Now you are tens and hundreds of times faster!
